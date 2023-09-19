@@ -1,11 +1,8 @@
 {
   "scripts": {
-    "start": "node challenge/index.js",
-    "dev": "nodemon challenge/index.js",
-    "dev:s": "nodemon solution/index.js",
+    "start": "node scripts/index.js",
     "test": "node --test",
-    "test:sanitize": "node test/sanitization.test.js",
-    "test:validate": "node test/validation.test.js"
+    "test:sanitize": "node test/sanitization.test.js"
   },
   "dependencies": {
     "express": "^4.18.1"
