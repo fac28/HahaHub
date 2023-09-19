@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const { sanitize } = require("./utils.js");
 
 //View engine
 app.set("view engine", "ejs");
+
+//Middleware
+server.use(staticHandler);
 
 //Variables
 const jokes = [
@@ -39,13 +41,11 @@ router.post("/", (req,res) => {
       delivery: joke,
       nickname: name
     });
-    
+    res.redirect("/");  
   }
   else {
-    res.status(400);
+    res.status(400).send();
   }
-  
-  res.redirect("/");
 });
 
 app.use("/", router);
