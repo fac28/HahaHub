@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/normalize.css">
-  <link rel="stylesheet" href="../public/styles.css">
-  <title>HaHa Hub</title>
-</head>
-<body>
-  <header>
-    <div>
-      <h1>Haha Hub</h1>
-    </div>
-    <form action="/" method="POST">
-      <label for="nickname">nickname</label>
-      <input type="text" name="nickname">
-      <label for="joke-input">Tell a joke...go on!</label>
-      <textarea name="joke-input" id="joke-input" cols="30" rows="1"></textarea>
-      <button type="submit">Punch Line</button>
-    </form>
-    <main>
-      <% jokes.forEach((joke) => { %>
-      <div class="card">
-        <ul>
-          <li><%= joke.nickname %></li>
-          <li><%= joke.delivery %></li>
-        </ul>
-        <form action="/" method="">
-          <button type="submit">Delete</button>
-        </form>
-        <% }) %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/normalize.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>HaHa Hub</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Haha Hub</h1>
       </div>
-    </main>
-  </header>
-</body>
+      <form action="/" method="POST">
+        <label for="nickname">nickname</label>
+        <input type="text" name="nickname" />
+        <label for="joke-input">Tell a joke...go on!</label>
+        <textarea
+          name="joke-input"
+          id="joke-input"
+          cols="30"
+          rows="1"
+        ></textarea>
+        <button type="submit">Punch Line</button>
+      </form>
+      <main>
+        <% jokes.forEach((joke) => { %>
+        <div class="card">
+          <ul>
+            <li><%= joke.nickname %></li>
+            <li><%= joke.delivery %></li>
+          </ul>
+          <form action="/" method="">
+            <button type="submit">Delete</button>
+          </form>
+          <% }) %>
+        </div>
+      </main>
+    </header>
+  </body>
 </html>

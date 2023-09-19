@@ -1,9 +1,13 @@
 const express = require("express");
 const server = express();
 // const { home } = require("./templates.js");
+const staticHandler = express.static("public");
 
 //View engine
 server.set("view engine", "ejs");
+
+//Middleware
+server.use(staticHandler);
 
 //Variables
 const jokes = [
