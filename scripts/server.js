@@ -1,11 +1,16 @@
 const express = require("express");
-const { home } = require("./templates.js");
-
 const server = express();
+// const { home } = require("./templates.js");
 
-const posts = [];
+//View engine
+server.set("view engine", "ejs");
+
+
+
+// const posts = [];
 
 server.get("/", (req, res) => {
-  const body = home(posts);
-  res.send(body);
+  res.render("index");
 });
+
+module.exports = server;
