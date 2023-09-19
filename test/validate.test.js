@@ -29,6 +29,6 @@ test("POST with empty nickname is recorded as anonymous", async () => {
     headers: { "content-type": "application/x-www-form-urlencoded" },
   });
   assert.equal(status, 200);
-  assert.match(body, /<li>anonymous<\/li>/i);
+  assert.match(body, /<li class="card_list">anonymous<\/li>/i);
 }
 );
