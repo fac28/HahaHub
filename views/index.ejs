@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="../public/normalize.css" /> -->
+    <link rel="stylesheet" href="../public/normalize.css" />
     <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Overpass|Permanent+Marker" rel="stylesheet">
     <title>HaHa Hub</title>
   </head>
   <body>
@@ -29,15 +30,15 @@
     <main>
       <% jokes.forEach((joke) => { %>
       <div class="card">
-        <ul>
-          <li><%= joke.nickname %></li>
-          <li><%= joke.delivery %></li>
+        <ul class="card_list-container">
+          <li class="card_list"><%= joke.delivery %></li>
+          <li class="card_list"><%= joke.nickname %></li>
         </ul>
-        <form action="/" method="">
+        <form class="flex" action="/" method="">
           <button class="button" type="submit">Delete</button>
         </form>
-        <% }) %>
       </div>
+      <% }) %>
     </main>
   </body>
 </html>
