@@ -14,15 +14,16 @@
       </div>
       <form class="header-form" action="/" method="POST">
         <label for="nickname">nickname</label>
-        <input type="text" name="nickname" />
+        <input class="header-form_input" type="text" name="nickname" />
         <label for="joke-input">Tell a joke...go on!</label>
         <textarea
+          class="header-form_input"
           name="joke-input"
           id="joke-input"
           cols="30"
           rows="1"
         ></textarea>
-        <button type="submit">Punch Line</button>
+        <button class="button" type="submit">Punch Line</button>
       </form>
     </header>
     <main>
@@ -33,7 +34,7 @@
           <li><%= joke.delivery %></li>
         </ul>
         <form action="/" method="">
-          <button type="submit">Delete</button>
+          <button class="button" type="submit">Delete</button>
         </form>
         <% }) %>
       </div>
