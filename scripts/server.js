@@ -12,7 +12,8 @@ app.use(staticHandler);
 const jokes = [
   {
     delivery: "A person walks into a bar",
-    nickname: "Bobby" },
+    nickname: "Bobby",
+  },
   {
     delivery: "What do you get when you cross a elephant with a rhino?",
     nickname: "Samantha",
@@ -26,24 +27,23 @@ app.get("/", (req, res) => {
   res.render("index", { jokes: jokes });
 });
 
-app.post("/", (req,res) => {
+app.post("/", (req, res) => {
   let name = req.body.nickname;
   const joke = req.body.jokeInput;
 
   // if name is empty, change to anonymous
-  if (name==="") {
-    name = 'anonymous'
+  if (name === "") {
+    name = "anonymous";
   }
 
   // if joke is empty, don't add to jokes, send 400
-  if (joke!== ""){
+  if (joke !== "") {
     jokes.push({
       delivery: joke,
-      nickname: name
+      nickname: name,
     });
     res.redirect("/");
-  }
-  else {
+  } else {
     res.status(400).send();
   }
 });
