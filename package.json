@@ -1,8 +1,7 @@
 {
   "scripts": {
     "start": "node scripts/index.js",
-    "test": "node --test",
-    "test:sanitize": "node test/sanitization.test.js"
+    "test": "node --test"
   },
   "dependencies": {
     "express": "^4.18.1"
