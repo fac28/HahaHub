@@ -1,6 +1,6 @@
 # HahaHub
 
-<img src="./images/mascot.png" width="300">
+<img src="./public/mascot.png" width="300">
 
 Welcome to HahaHub! HahaHub is a simple microblogging platform where users can share their thoughts and view posts from others. This project serves as a learning exercise and focuses on deploying a Node.js application to Fly.io, a Platform-as-a-Service (PaaS) provider. Please note that data persistence is not a requirement for this project, and we will explore databases in future iterations.
 
