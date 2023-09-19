@@ -41,3 +41,37 @@
 /*------------------------------------*\
  Media queries
 \*------------------------------------*/
+
+:root {
+  --primary-light: #dad7cdff;
+  --secondary-light: #a3b18aff;
+  --neutral: #588157ff;
+  --primary-dark: #3a5a40ff;
+  --secondary-dark: #344e41ff;
+}
+
+body {
+  margin: -1rem 0;
+  background-color: var(--primary-light);
+}
+
+.b-header {
+  background-color: var(--neutral);
+  padding: 0.2rem 0 0.5rem 0;
+}
+
+.header-div {
+  background-color: var(--secondary-light);
+  color: var(--primary-dark);
+  width: fit-content;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 0 1rem;
+  border-radius: 40%;
+}
+
+.header-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
