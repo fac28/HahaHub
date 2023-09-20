@@ -39,6 +39,14 @@
 /*------------------------------------*\
  Base
 \*------------------------------------*/
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
 
 body {
   margin: -1rem 0;
@@ -114,21 +122,29 @@ h1 {
   list-style: none;
   margin: auto;
   padding: 0;
+  font-size: 1.5rem;
 }
 
 .card_list-container {
   padding-left: 0;
 }
 
+.card_nickname{
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary-dark);
+  display: flex;
+  justify-content: right;
+  margin: 1rem 4rem;
+}
+
 /*------------------------------------*\
  Media queries
 \*------------------------------------*/
 
-/* mobile version */
-@media only screen and (min-width: 600px) {
-  main {
-    margin: 0 15rem;
+/* laptop version */
+@media only screen and (min-width: 800px) {
+  .card {
+    min-width: 60%;
   }
 }
-
-
