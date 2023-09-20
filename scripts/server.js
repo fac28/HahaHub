@@ -1,16 +1,16 @@
 const express = require("express");
 const app = express();
 const staticHandler = express.static("public");
-const upRoute = require("./routes/upRoute");
-const downRoute = require("./routes/downRoute");
+// const upRoute = require("./routes/upRoute");
+// const downRoute = require("./routes/downRoute");
 
 //View engine
 app.set("view engine", "ejs");
 
 //Middleware
 app.use(staticHandler);
-app.use("/up", upRoute);
-app.use("/down", downRoute);
+// app.use("/up", upRoute);
+// app.use("/down", downRoute);
 
 //Variables
 const error = {};
@@ -79,7 +79,26 @@ app.post("/delete:id", (req, res) => {
   res.redirect("/");
 });
 
+app.post("/down/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  let index = jokes.findIndex((joke) => {
+    return joke.id == id;
+  });
+  jokes[index].score--;
+  res.redirect("/");
+});
+
+app.post("/up/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  let index = jokes.findIndex((joke) => {
+    return joke.id == id;
+  });
+  jokes[index].score++;
+  res.redirect("/");
+});
 module.exports = {
-  app: app, 
-  jokes: jokes, 
+  app: app,
+  jokes: jokes,
 };
