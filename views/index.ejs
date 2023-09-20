@@ -33,7 +33,7 @@
       <div class="card">
         <ul class="card_list-container">
           <li class="card_list"><%= joke.delivery %></li>
-          <li class="card_list"><%= joke.nickname %></li>
+          <li class="card_list card_nickname"><%= joke.nickname %></li>
         </ul>
         <form class="flex" action="/delete<%= joke.id %>" method="POST">
           <button class="button" type="submit">Delete</button>
