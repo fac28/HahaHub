@@ -22,7 +22,7 @@
           class="header-form_input"
           name="jokeInput"
           id="joke-input"
-          cols="30"
+          cols="20"
           rows="1"
         ></textarea>
         <p><%= error.message %></p>
@@ -34,7 +34,7 @@
       <div class="card">
 
         <div class="vote">
-        
+
         <form action="/up<%= joke.id %>" method="POST">
           <button class="button" type="submit">😂</button>
         </form>
