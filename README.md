@@ -23,7 +23,7 @@ Before running the project locally, make sure you have the following software in
 1. Clone the repository to your local machine:
 
    ```shell
-   git clone https://github.com/your-username/hahahub.git
+   git clone https://github.com/fac28/HahaHub
 
    ```
 
