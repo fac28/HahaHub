@@ -13,14 +13,16 @@ const error = {};
 
 const jokes = [
   {
-    delivery: "A person walks into a bar",
+    delivery: "A person walks into a bar...ouch",
     nickname: "Bobby",
     id: Math.random(),
+    score: 1
   },
   {
-    delivery: "What do you get when you cross a elephant with a rhino?",
+    delivery: "What do you get when you cross a elephant with a rhino? El-rhino!",
     nickname: "Samantha",
     id: Math.random(),
+    score: 0
   },
 ];
 
@@ -48,6 +50,7 @@ app.post("/", (req, res) => {
       delivery: joke,
       nickname: name,
       id: id,
+      score: 0,
     });
     res.redirect("/");
   } else {
