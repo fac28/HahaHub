@@ -46,7 +46,7 @@ app.post("/", (req, res) => {
       nickname: name,
       id: id,
     });
-    res.render("index", { jokes: jokes });
+    res.redirect('/')
   } else {
     res.status(400).send();
   }
@@ -64,8 +64,7 @@ app.post("/delete:id", (req, res) => {
   if (index!=-1){
     jokes.splice(index, 1);
   }
-
-  res.render("index", { jokes: jokes });
+  res.redirect('/');
 });
 
 module.exports = app;
