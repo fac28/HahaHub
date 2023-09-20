@@ -34,7 +34,7 @@
           <li class="card_list"><%= joke.delivery %></li>
           <li class="card_list"><%= joke.nickname %></li>
         </ul>
-        <form class="flex" action="/" method="">
+        <form class="flex" action="/delete<%= joke.id %>" method="POST">
           <button class="button" type="submit">Delete</button>
         </form>
       </div>
