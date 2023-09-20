@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 const staticHandler = express.static("public");
+const upRoute = require("./routes/upRoute");
+const downRoute = require("./routes/downRoute");
 
 //View engine
 app.set("view engine", "ejs");
 
 //Middleware
 app.use(staticHandler);
+app.use("/up", upRoute);
+app.use("/down", downRoute);
 
 //Variables
 const error = {};
@@ -16,13 +20,14 @@ const jokes = [
     delivery: "A person walks into a bar...ouch",
     nickname: "Bobby",
     id: Math.random(),
-    score: 1
+    score: 1,
   },
   {
-    delivery: "What do you get when you cross a elephant with a rhino? El-rhino!",
+    delivery:
+      "What do you get when you cross a elephant with a rhino? El-rhino!",
     nickname: "Samantha",
     id: Math.random(),
-    score: 0
+    score: 0,
   },
 ];
 
@@ -30,7 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Routes
 app.get("/", (req, res) => {
-  res.render("index", { jokes: jokes, error: error, });
+  res.render("index", { jokes: jokes, error: error });
 });
 
 app.post("/", (req, res) => {
@@ -54,8 +59,8 @@ app.post("/", (req, res) => {
     });
     res.redirect("/");
   } else {
-    error.message = "Somebody tell a joke!"
-    res.status(400).redirect('/');
+    error.message = "Somebody tell a joke!";
+    res.status(400).redirect("/");
   }
 });
 
@@ -74,4 +79,7 @@ app.post("/delete:id", (req, res) => {
   res.redirect("/");
 });
 
-module.exports = app;
+module.exports = {
+  app: app, 
+  jokes: jokes, 
+};
