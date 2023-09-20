@@ -73,11 +73,24 @@ p {
   font-family: var(--paragraph-font);
 }
 
+.punch {
+  padding-right: 1rem;
+}
+
+.punch::before {
+  content: '👊 ';
+  opacity: 0;
+}
+
+.punch:hover::before {
+  opacity: 1;
+}
+
 .button:hover {
   box-shadow: 2px 2px 2px var(--secondary-dark);
-  background-color: rgb(194, 129, 9);
   color: var(--primary-light);
   transform: scale(1.1);
+  background-color: rgb(194, 129, 9);
 }
 
 .card {
