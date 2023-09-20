@@ -30,16 +30,23 @@
       </form>
     </header>
     <main>
-      <% jokes.forEach((joke) => { %>
+
+      <%
+        sortedJokes = jokes.sort((a, b) => {
+        return b.score - a.score;
+      });
+      %>
+      <% sortedJokes.forEach((joke) => { %>
       <div class="card">
 
         <div class="vote">
+        
+        <form action="/up/<%= joke.id %>" method="POST">
 
-        <form action="/up<%= joke.id %>" method="POST">
           <button class="button" type="submit">😂</button>
         </form>
         <p><%= joke.score %></p>
-        <form  action="/down<%= joke.id %>" method="POST">
+        <form  action="/down/<%= joke.id %>" method="POST">
           <button class="button" type="submit">💩</button>
         </form>
 
