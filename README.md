@@ -10,6 +10,8 @@ This project serves as a learning exercise and focuses on deploying a Node.js ap
 
 Please note that data persistence is not a requirement for this project, and we will explore databases in future iterations.
 
+You can see the delpoyed site [here](https://hahahub.fly.dev/).
+
 ## Getting Started
 
 ### Prerequisites
