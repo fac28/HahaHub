@@ -9,6 +9,8 @@ app.set("view engine", "ejs");
 app.use(staticHandler);
 
 //Variables
+const error = {};
+
 const jokes = [
   {
     delivery: "A person walks into a bar",
@@ -26,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Routes
 app.get("/", (req, res) => {
-  res.render("index", { jokes: jokes });
+  res.render("index", { jokes: jokes, error: error, });
 });
 
 app.post("/", (req, res) => {
@@ -41,14 +43,16 @@ app.post("/", (req, res) => {
 
   // if joke is empty, don't add to jokes, send 400
   if (joke !== "") {
+    error.message = "";
     jokes.push({
       delivery: joke,
       nickname: name,
       id: id,
     });
-    res.redirect('/')
+    res.redirect("/");
   } else {
-    res.status(400).send();
+    error.message = "Somebody tell a joke!"
+    res.status(400).redirect('/');
   }
 });
 
@@ -61,10 +65,10 @@ app.post("/delete:id", (req, res) => {
     return joke.id == id;
   });
 
-  if (index!=-1){
+  if (index != -1) {
     jokes.splice(index, 1);
   }
-  res.redirect('/');
+  res.redirect("/");
 });
 
 module.exports = app;
