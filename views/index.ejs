@@ -32,6 +32,19 @@
     <main>
       <% jokes.forEach((joke) => { %>
       <div class="card">
+
+        <div class="vote">
+        
+        <form action="/up<%= joke.id %>" method="POST">
+          <button class="button" type="submit">😂</button>
+        </form>
+        <p><%= joke.score %></p>
+        <form  action="/down<%= joke.id %>" method="POST">
+          <button class="button" type="submit">💩</button>
+        </form>
+
+      </div>
+
         <ul class="card_list-container">
           <li class="card_list"><%= joke.delivery %></li>
           <li class="card_list"><%= joke.nickname %></li>
