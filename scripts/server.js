@@ -13,10 +13,12 @@ const jokes = [
   {
     delivery: "A person walks into a bar",
     nickname: "Bobby",
+    id: Math.random(),
   },
   {
     delivery: "What do you get when you cross a elephant with a rhino?",
     nickname: "Samantha",
+    id: Math.random(),
   },
 ];
 
@@ -30,6 +32,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   let name = req.body.nickname;
   const joke = req.body.jokeInput;
+  let id = Math.random();
 
   // if name is empty, change to anonymous
   if (name === "") {
@@ -41,11 +44,28 @@ app.post("/", (req, res) => {
     jokes.push({
       delivery: joke,
       nickname: name,
+      id: id,
     });
-    res.redirect("/");
+    res.render("index", { jokes: jokes });
   } else {
     res.status(400).send();
   }
+});
+
+//Delete route for posts
+app.post("/delete:id", (req, res) => {
+  const id = req.params.id;
+
+  // check if index is -1
+  let index = jokes.findIndex((joke) => {
+    return joke.id == id;
+  });
+
+  if (index!=-1){
+    jokes.splice(index, 1);
+  }
+
+  res.render("index", { jokes: jokes });
 });
 
 module.exports = app;

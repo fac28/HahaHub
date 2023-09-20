@@ -13,4 +13,4 @@ Please note that data persistence is not a requirement for this project, and we 
 ## Contribute
 Feel free to contribute to this project by submitting pull requests or reporting issues.
 
-We welcome your feedback and contributions to make the users of HahaHub happier!
+We welcome your feedback and contributions to make the users of HahaHub ha-ha-happier!
