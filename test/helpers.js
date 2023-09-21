@@ -1,4 +1,4 @@
-const server = require("../scripts/server.js");
+const server = require("../src/server.js");
 
 async function request(pathname, options = {}) {
   const app = server.listen(0);
