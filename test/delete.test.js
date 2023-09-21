@@ -13,7 +13,7 @@ test("Delete joke with valid id is accepted", async () => {
   
   // get the id of the new post in form action
   const id = body.match(/action="\/delete(.*?)"/i)[1];
-  console.log('id is ' + id);
+  console.log(`id is ${  id}`);
 
   //delete the post
   const { status: deleteStatus } = await request(`/delete${id}`, {

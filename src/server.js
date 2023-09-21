@@ -1,16 +1,12 @@
 const express = require("express");
 const app = express();
 const staticHandler = express.static("public");
-// const upRoute = require("./routes/upRoute");
-// const downRoute = require("./routes/downRoute");
 
 //View engine
 app.set("view engine", "ejs");
 
 //Middleware
 app.use(staticHandler);
-// app.use("/up", upRoute);
-// app.use("/down", downRoute);
 
 //Variables
 const error = {};
@@ -35,13 +31,13 @@ app.use(express.urlencoded({ extended: false }));
 
 //Routes
 app.get("/", (req, res) => {
-  res.render("index", { jokes: jokes, error: error });
+  res.render("index", { jokes, error });
 });
 
 app.post("/", (req, res) => {
   let name = req.body.nickname;
   const joke = req.body.jokeInput;
-  let id = Math.random();
+  const id = Math.random();
 
   // if name is empty, change to anonymous
   if (name === "") {
@@ -49,18 +45,18 @@ app.post("/", (req, res) => {
   }
 
   // if joke is empty, don't add to jokes, send 400
-  if (joke !== "") {
+  if (joke === "") {
+    error.message = "Somebody tell a joke!";
+    res.status(400).redirect("/");
+  } else {
     error.message = "";
     jokes.push({
       delivery: joke,
       nickname: name,
-      id: id,
+      id,
       score: 0,
     });
     res.redirect("/");
-  } else {
-    error.message = "Somebody tell a joke!";
-    res.status(400).redirect("/");
   }
 });
 
@@ -69,7 +65,7 @@ app.post("/delete:id", (req, res) => {
   const id = req.params.id;
 
   // check if index is -1
-  let index = jokes.findIndex((joke) => {
+  const index = jokes.findIndex((joke) => {
     return joke.id == id;
   });
 
@@ -81,8 +77,7 @@ app.post("/delete:id", (req, res) => {
 
 app.post("/down/:id", (req, res) => {
   const id = req.params.id;
-  console.log(id);
-  let index = jokes.findIndex((joke) => {
+  const index = jokes.findIndex((joke) => {
     return joke.id == id;
   });
   jokes[index].score--;
@@ -91,14 +86,11 @@ app.post("/down/:id", (req, res) => {
 
 app.post("/up/:id", (req, res) => {
   const id = req.params.id;
-  console.log(id);
-  let index = jokes.findIndex((joke) => {
+  const index = jokes.findIndex((joke) => {
     return joke.id == id;
   });
   jokes[index].score++;
   res.redirect("/");
 });
-module.exports = {
-  app: app,
-  jokes: jokes,
-};
+
+module.exports = app;
