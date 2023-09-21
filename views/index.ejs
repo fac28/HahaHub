@@ -19,11 +19,11 @@
         <input class="header-form_input" type="text" name="nickname" />
         <label for="jokeInput">Tell a joke...go on!</label>
         <textarea
-          class="header-form_input"
+          class="header-form_input joke_input"
           name="jokeInput"
           id="joke-input"
           cols="20"
-          rows="1"
+          rows="5"
         ></textarea>
         <p><%= error.message %></p>
         <button class="button punch" type="submit">Punch Line</button>
@@ -40,7 +40,7 @@
       <div class="card">
 
         <div class="vote">
-        
+
         <form action="/up/<%= joke.id %>" method="POST">
 
           <button class="button" type="submit">😂</button>
