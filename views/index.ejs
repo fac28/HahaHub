@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Overpass|Permanent+Marker" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico?">
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Overpass|Permanent+Marker"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico?" />
     <title>HaHa Hub</title>
   </head>
   <body>
@@ -30,32 +33,27 @@
       </form>
     </header>
     <main>
-
-      <%
-        sortedJokes = jokes.sort((a, b) => {
-        return b.score - a.score;
-      });
-      %>
+      <% sortedJokes = jokes.sort((a, b) => { return b.score - a.score; }); %>
       <% sortedJokes.forEach((joke) => { %>
       <div class="card flex row center">
-
         <div class="flex column center">
-        
-        <form action="/up/<%= joke.id %>" method="POST">
-
-          <button class="button" type="submit">😂</button>
-        </form>
-        <p><%= joke.score %></p>
-        <form  action="/down/<%= joke.id %>" method="POST">
-          <button class="button" type="submit">💩</button>
-        </form>
-
-      </div>
+          <form action="/up/<%= joke.id %>" method="POST">
+            <button class="button" type="submit">😂</button>
+          </form>
+          <p><%= joke.score %></p>
+          <form action="/down/<%= joke.id %>" method="POST">
+            <button class="button" type="submit">💩</button>
+          </form>
+        </div>
         <ul class="card__list-container">
-          <li class="card__list"><%= joke.delivery %></li>
+          <li class="card__list flex center"><%= joke.delivery %></li>
           <li class="card__list card__nickname"><%= joke.nickname %></li>
         </ul>
-        <form class="flex column center" action="/delete<%= joke.id %>" method="POST">
+        <form
+          class="flex column center"
+          action="/delete<%= joke.id %>"
+          method="POST"
+        >
           <button class="button delete" type="submit">Delete</button>
         </form>
       </div>

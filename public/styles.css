@@ -32,8 +32,8 @@
   --neutral: #588157ff;
   --primary-dark: #3a5a40ff;
   --secondary-dark: #344e41ff;
-  --header-font: 'Permanent Marker', cursive;
-  --paragraph-font: 'Overpass', sans-serif;
+  --header-font: "Permanent Marker", cursive;
+  --paragraph-font: "Overpass", sans-serif;
 }
 
 /*------------------------------------*\
@@ -78,7 +78,7 @@ p {
 }
 
 .punch::before {
-  content: '👊 ';
+  content: "👊 ";
   opacity: 0;
 }
 
@@ -106,7 +106,7 @@ p {
   display: flex;
 }
 
-.row { 
+.row {
   flex-direction: row;
 }
 
@@ -116,7 +116,6 @@ p {
 
 .center {
   align-items: center;
-  justify-content: center;
 }
 /*------------------------------------*\
  Components
@@ -156,9 +155,11 @@ p {
 .card__list {
   list-style: none;
   margin: auto;
-  padding: 0;
+  padding: 0 2rem;
   font-size: 1.5rem;
   word-break: break-all;
+  justify-content: center;
+  text-align: center;
 }
 
 .card__list-container {
@@ -168,7 +169,7 @@ p {
   gap: 0.4rem;
 }
 
-.card__nickname{
+.card__nickname {
   font-size: 1rem;
   font-weight: bold;
   color: var(--primary-dark);
@@ -176,8 +177,6 @@ p {
   justify-content: right;
   margin: 1rem 4rem;
 }
-
-
 
 /*------------------------------------*\
  Media queries
