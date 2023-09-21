@@ -97,9 +97,6 @@ p {
   background-color: var(--secondary-light);
   margin: 1rem;
   padding: 1rem;
-  text-align: center;
-  flex-direction: row;
-  display: flex;
   justify-self: flex-end;
   border-radius: 10px;
   justify-content: space-around;
@@ -107,27 +104,30 @@ p {
 
 .flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Add this line */
 }
 
-.vote {
-  display: flex;
+.row { 
+  flex-direction: row;
+}
+
+.column {
   flex-direction: column;
+}
+
+.center {
+  align-items: center;
   justify-content: center;
 }
-
 /*------------------------------------*\
  Components
 \*------------------------------------*/
 
-.b-header {
+.header {
   background-color: var(--neutral);
   padding: 0.2rem 0 0.5rem 0;
 }
 
-.header-div {
+.header__div {
   background-color: var(--primary-light);
   color: var(--primary-dark);
   width: fit-content;
@@ -138,15 +138,12 @@ p {
   box-shadow: 4px 5px 2px 1px var(--secondary-dark);
 }
 
-.header-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.header__form {
   color: var(--primary-light);
   font-size: 1.5rem;
 }
 
-.header-form_input {
+.header__form__input {
   margin: 0.2rem 0 1rem 0;
   box-shadow: 3px 4px 2px 1px var(--secondary-dark);
 }
@@ -156,7 +153,7 @@ p {
   height: 5rem;
 }
 
-.card_list {
+.card__list {
   list-style: none;
   margin: auto;
   padding: 0;
@@ -164,14 +161,14 @@ p {
   word-break: break-all;
 }
 
-.card_list-container {
+.card__list-container {
   padding-left: 0;
   width: 75%;
   margin: 0.5rem;
   gap: 0.4rem;
 }
 
-.card_nickname{
+.card__nickname{
   font-size: 1rem;
   font-weight: bold;
   color: var(--primary-dark);

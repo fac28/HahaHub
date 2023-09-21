@@ -20,7 +20,7 @@ const jokes = [
   },
   {
     delivery:
-      "What do you get when you cross a elephant with a rhino? El-rhino!",
+      "What do you get when you cross a elephant with a rhino? Ele-rhi-no!",
     nickname: "Samantha",
     id: Math.random(),
     score: 0,
@@ -84,6 +84,7 @@ app.post("/down/:id", (req, res) => {
   res.redirect("/");
 });
 
+//Up vote route
 app.post("/up/:id", (req, res) => {
   const id = req.params.id;
   const index = jokes.findIndex((joke) => {
