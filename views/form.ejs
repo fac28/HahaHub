@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Overpass|Permanent+Marker" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico?">
+    <title>HaHa Hub</title>
+  </head>
+<body>
+  <header class="b-header">
+    <div class="header-div">
+      <h1>Haha <br />Hub</h1>
+    </div>
+    <form class="header-form" action="/" method="POST">
+      <label for="nickname">nickname</label>
+      <input class="header-form_input" type="text" name="nickname" />
+      <label for="jokeInput">Tell a joke...go on!</label>
+      <textarea
+        class="header-form_input"
+        name="jokeInput"
+        id="joke-input"
+        cols="20"
+        rows="1"
+      ></textarea>
+      <p><%= error.message %></p>
+      <button class="button punch" type="submit">Punch Line</button>
+    </form>
+  </header>
+</body>
+</html>
