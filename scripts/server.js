@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const staticHandler = express.static("public");
 // const upRoute = require("./routes/upRoute");
-// const downRoute = require("./routes/downRoute");
+const downRoute = require("./routes/downRoute");
 
 //View engine
 app.set("view engine", "ejs");
@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 //Middleware
 app.use(staticHandler);
 // app.use("/up", upRoute);
-// app.use("/down", downRoute);
+app.use("/down", downRoute);
 
 //Variables
 const error = {};
@@ -24,7 +24,7 @@ const jokes = [
   },
   {
     delivery:
-      "What do you get when you cross a elephant with a rhino? El-rhino!",
+      "What do you get when you cross a elephant with a rhino? Ele-rhi-no!",
     nickname: "Samantha",
     id: Math.random(),
     score: 0,
@@ -79,16 +79,18 @@ app.post("/delete:id", (req, res) => {
   res.redirect("/");
 });
 
-app.post("/down/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  let index = jokes.findIndex((joke) => {
-    return joke.id == id;
-  });
-  jokes[index].score--;
-  res.redirect("/");
-});
+// //Down vote route
+// app.post("/down/:id", (req, res) => {
+//   const id = req.params.id;
+//   console.log(id);
+//   let index = jokes.findIndex((joke) => {
+//     return joke.id == id;
+//   });
+//   jokes[index].score--;
+//   res.redirect("/");
+// });
 
+//Up vote route
 app.post("/up/:id", (req, res) => {
   const id = req.params.id;
   console.log(id);
@@ -98,6 +100,7 @@ app.post("/up/:id", (req, res) => {
   jokes[index].score++;
   res.redirect("/");
 });
+
 module.exports = {
   app: app,
   jokes: jokes,

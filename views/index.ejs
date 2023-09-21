@@ -10,16 +10,16 @@
     <title>HaHa Hub</title>
   </head>
   <body>
-    <header class="b-header">
-      <div class="header-div">
+    <header class="header">
+      <div class="header__div">
         <h1>Haha <br />Hub</h1>
       </div>
-      <form class="header-form" action="/" method="POST">
+      <form class="header__form flex column center" action="/" method="POST">
         <label for="nickname">nickname</label>
-        <input class="header-form_input" type="text" name="nickname" />
+        <input class="header__form__input" type="text" name="nickname" />
         <label for="jokeInput">Tell a joke...go on!</label>
         <textarea
-          class="header-form_input"
+          class="header__form__input"
           name="jokeInput"
           id="joke-input"
           cols="20"
@@ -37,9 +37,9 @@
       });
       %>
       <% sortedJokes.forEach((joke) => { %>
-      <div class="card">
+      <div class="card flex row center">
 
-        <div class="vote">
+        <div class="flex column center">
         
         <form action="/up/<%= joke.id %>" method="POST">
 
@@ -51,12 +51,11 @@
         </form>
 
       </div>
-
-        <ul class="card_list-container">
-          <li class="card_list"><%= joke.delivery %></li>
-          <li class="card_list card_nickname"><%= joke.nickname %></li>
+        <ul class="card__list-container">
+          <li class="card__list"><%= joke.delivery %></li>
+          <li class="card__list card__nickname"><%= joke.nickname %></li>
         </ul>
-        <form class="flex" action="/delete<%= joke.id %>" method="POST">
+        <form class="flex column center" action="/delete<%= joke.id %>" method="POST">
           <button class="button delete" type="submit">Delete</button>
         </form>
       </div>
