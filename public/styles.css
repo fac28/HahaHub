@@ -151,6 +151,11 @@ p {
   box-shadow: 3px 4px 2px 1px var(--secondary-dark);
 }
 
+.joke_input {
+  resize: none;
+  height: 5rem;
+}
+
 .card_list {
   list-style: none;
   margin: auto;
